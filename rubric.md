@@ -13,7 +13,7 @@ _____ 1 pt: Gameplay supports **reversible moves** where reasonable (e.g., if yo
 _____ 1 pt: Some paths through the game have **restricted access** until the player has completed a task or acquired a specific item (i.e. a key to open a door, etc.).
 
 
-## Back-End Design (10 pts)
+## Back-End Design (15 pts)
 
 _____ 2 pts: Selected classes(s) are **effective, efficient** at supporting the desired operations and program behavior.
 
@@ -25,6 +25,13 @@ _____ 2 pts: The project's design is **extensible** (i.e. someone else could pic
 
 _____ 2 pts: Submission includes an **architecture diagram** describing the relationships between all classes.
 
+_____ 1 pt: All classes extend their respective template class. 
+
+_____ 1 pt: All classes override certain methods. 
+
+_____ 1 pt: Each constructor works as expected. 
+
+_____ 2 pt: All classes implement their required attributes and methods as outlined in their requirements file. 
 
 ## General Items (10 pts):
 _____ 4 pts: Program compiles without errors or warnings.
