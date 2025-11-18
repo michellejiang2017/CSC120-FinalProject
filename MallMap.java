@@ -110,5 +110,5 @@ public class MallMap extends Building {
     }
 
     public static void main(String[] args) {
-       
+    }  
 }
