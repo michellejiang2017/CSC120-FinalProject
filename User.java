@@ -9,7 +9,9 @@ public class User {
     private boolean hasCar;
     private int parkingSpot;
     private List<String> shoppingList; 
+    private int hunger; 
 
+    // use scanner to get input for the constructor
     public User(String name, int age, String gender, double money, boolean hasCar) {
         this.name = name;
         this.age = age;
@@ -18,6 +20,7 @@ public class User {
         this.hasCar = hasCar;
         this.parkingSpot = -1;
         this.shoppingList = new ArrayList<>();
+        this.hunger = 0; 
     }
 
     public String getName() {

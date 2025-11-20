@@ -32,7 +32,7 @@ public class Employee {
     public void mainConversation() { 
         String item = ""; 
         while (item != "exit") {
-            System.out.println("What would you like to purchase from this store? (Exit to leave store)");
+            System.out.println("What would you like to purchase from this store? (Type 'exit' to leave store)");
             item = getInput(); 
             if (store.checkItem(item)) { 
                 if (store.checkStock(item)) { 
@@ -45,12 +45,13 @@ public class Employee {
                 // give option to add item to list and if no then choose to exit store? 
             }
         } 
+        System.out.println("Goodbye! ");
         store.exit(user);
     }
 
     /**
      * Gets input from user & converts it to a string
-     * @return string fromatted user input 
+     * @return string formatted user input 
      */
     public String getInput() { 
         Scanner input = new Scanner(System.in);  
@@ -66,6 +67,7 @@ public class Employee {
      */
     public void suggestItem(String item) { 
         // suggests item
+        // give hint about where item might be --> ie suggests different store
         // adds item to shopping list!
     }
 
