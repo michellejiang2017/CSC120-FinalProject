@@ -33,7 +33,7 @@ public class Employee {
         String item = ""; 
         while (item != "exit") {
             System.out.println("What would you like to purchase from this store? (Type 'exit' to leave store)");
-            item = getInput(); 
+            item = user.getInput(); 
             if (store.checkItem(item)) { 
                 if (store.checkStock(item)) { 
                     store.buy(user, item);
@@ -47,19 +47,6 @@ public class Employee {
         } 
         System.out.println("Goodbye! ");
         store.exit(user);
-    }
-
-    /**
-     * Gets input from user & converts it to a string
-     * @return string formatted user input 
-     */
-    public String getInput() { 
-        Scanner input = new Scanner(System.in);  
-        input.close();
-        String string = input.toString();
-        string = string.trim(); 
-        string = string.toLowerCase(); 
-        return string; 
     }
 
     /** 

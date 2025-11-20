@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class User {
     private String name;
@@ -12,7 +13,7 @@ public class User {
     private int hunger; 
 
     // use scanner to get input for the constructor
-    public User(String name, int age, String gender, double money, boolean hasCar) {
+    public User(String name, int age, String gender, double money, boolean hasCar, int hunger) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -20,13 +21,26 @@ public class User {
         this.hasCar = hasCar;
         this.parkingSpot = -1;
         this.shoppingList = new ArrayList<>();
-        this.hunger = 0; 
+        this.hunger = hunger; 
     }
 
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Gets input from user & converts it to a string
+     * @return string formatted user input 
+     */
+    public String getInput() { 
+        Scanner input = new Scanner(System.in);  
+        input.close();
+        String string = input.toString();
+        string = string.trim(); 
+        string = string.toLowerCase(); 
+        return string; 
+    }
+    
     public void addToShoppingList(String item) {
        
     }
