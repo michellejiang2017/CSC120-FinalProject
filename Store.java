@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class Store {
     protected String name;
-    protected Map<String, Double> items;   
+    protected Map<String, Double> items;   // all items & stock needs to be lowercase no whitespace
     protected Map<String, Integer> stock;  
     protected int capacity;             
 
@@ -45,5 +45,21 @@ public class Store {
      */
     public void printInventory() { 
 
+    }
+
+    /**
+     * Checks if item is in shopping list
+     * @return true if item in list false otherwise
+     */
+    public boolean checkItem(String item) { 
+        return true; 
+    }
+
+    /**
+     * Checks if item is in stock
+     * @return true if item in list false otherwise
+     */
+    public boolean checkStock(String item) {
+        return true; 
     }
 }

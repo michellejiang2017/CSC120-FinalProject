@@ -5,13 +5,7 @@
  * Date: 2025-11-20
  */
 
-// Imports for lists, maps, user input, and random number generator used in chatbot
-import java.util.ArrayList; 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner; 
-import java.lang.Math; 
 
 public class Employee {
 
@@ -36,23 +30,34 @@ public class Employee {
      * Asks user to buy items from inventory 
      */
     public void mainConversation() { 
-        System.out.println("What would you like to purchase from this store? ");
-        String item = getInput(); 
-        // check if item is in shopping list 
-        // if item in this.store.items key?? 
-        // buy the item 
-        // else suggest item 
+        String item = ""; 
+        while (item != "exit") {
+            System.out.println("What would you like to purchase from this store? (Exit to leave store)");
+            item = getInput(); 
+            if (store.checkItem(item)) { 
+                if (store.checkStock(item)) { 
+                    store.buy(user, item);
+                } else {
+                    suggestItem(item);
+                }
+            } else {
+                System.out.println(item + "is not in shopping list. Either add item to list or exit store. ");
+                // give option to add item to list and if no then choose to exit store? 
+            }
+        } 
+        store.exit(user);
     }
 
     /**
      * Gets input from user & converts it to a string
-     * @return string trimmed user input 
+     * @return string fromatted user input 
      */
     public String getInput() { 
         Scanner input = new Scanner(System.in);  
         input.close();
         String string = input.toString();
         string = string.trim(); 
+        string = string.toLowerCase(); 
         return string; 
     }
 
