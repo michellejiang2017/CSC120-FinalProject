@@ -10,7 +10,7 @@ public class User {
     private boolean hasCar;
     private int parkingSpot;
     private List<String> shoppingList; 
-    private int hunger; 
+    private int hunger; // starts at zero and increases with every exit. 
 
     // use scanner to get input for the constructor
     public User(String name, int age, String gender, double money, boolean hasCar, int hunger) {
@@ -21,7 +21,7 @@ public class User {
         this.hasCar = hasCar;
         this.parkingSpot = -1;
         this.shoppingList = new ArrayList<>();
-        this.hunger = hunger; 
+        this.hunger = 0; 
     }
 
     public String getName() {
@@ -73,8 +73,8 @@ public class User {
 
     }
 
-    public void eat(String food) { 
-        
+    public void eat(Food food) { 
+        food.dine(this.hunger, this.money);
     }
 
     public void play(String game) { 
