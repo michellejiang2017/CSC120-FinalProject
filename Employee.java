@@ -40,7 +40,7 @@ public class Employee {
                     store.buy(user, item);
                     user.removeFromShoppingList(item);
                 } else {
-                    suggestItem(item);
+                    //suggestItem(item);
                 }
             } else {
                 System.out.println(item + "is not in shopping list. Either add item to list or exit store. ('add item' or press any key)");
@@ -59,15 +59,15 @@ public class Employee {
     }
 
     /** 
-     * Given the desired item of the user, suggests the next item in the inventory -- OR suggests similar item
-     */
-    public void suggestItem(String item) { 
-        // suggests item
-        // give hint about where item might be --> ie suggests different store
-        // adds item to shopping list!
-        // if item not in stock, suggest store name? 
-        // if item does not exist then say that the item doesnt exist 
-    }
+    // * Given the desired item of the user, suggests the next item in the inventory -- OR suggests similar item
+    // */
+    //public void suggestItem(String item) { 
+    //    // suggests item
+    //    // give hint about where item might be --> ie suggests different store
+    //    // adds item to shopping list!
+    //    // if item not in stock, suggest store name? 
+    //    // if item does not exist then say that the item doesnt exist 
+    //}
 
     /**
      * Gets input from user & converts it to a string

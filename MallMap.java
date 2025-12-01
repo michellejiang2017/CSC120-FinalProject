@@ -17,21 +17,21 @@ public class MallMap extends Building {
         mallExtras[0][2] = new String[]{"Bathroom","Escalator"};
 
         // East Wing
-        mallStores[1][1] = new String[]{"Best Buy", "AT&T", "GameStop","Play Zone Two","Popeyes"};
+        mallStores[1][1] = new String[]{"Best Buy", "AT&T", "GameStop","Play Zone Two","Insomnia Cookies"};
         mallStores[1][2] = new String[]{"Barnes & Noble","Starbucks"};
         mallExtras[1][1] = new String[]{"Bathroom","Escalator"};
         mallExtras[1][2] = new String[]{"Bathroom","Escalator"};
 
         // South Wing
-        mallStores[2][1] = new String[]{"Burlington","Sephora"};
-        mallStores[2][2] = new String[]{"Swarovski","Tiffany & Co."};
+        mallStores[2][1] = new String[]{"Burlington","Sephora", "McDonald's"};
+        mallStores[2][2] = new String[]{"Swarovski","Tiffany & Co.", "In & Out"};
         mallExtras[2][1] = new String[]{"Bathroom","Escalator"};
         mallExtras[2][2] = new String[]{"Bathroom","Escalator"};
 
 
         // West Wing
-        mallStores[3][1] = new String[]{"Marshalls","TJ Maxx"};
-        mallStores[3][2] = new String[]{"Thrift Store","Vintage Finds"};
+        mallStores[3][1] = new String[]{"Marshalls","TJ Maxx", "NiceTea"};
+        mallStores[3][2] = new String[]{"Thrift Store","Vintage Finds", "Popeyes"};
         mallExtras[3][1] = new String[]{"Bathroom","Escalator"};
         mallExtras[3][2] = new String[]{"Bathroom","Escalator"};
 
