@@ -38,6 +38,7 @@ public class Employee {
             if (store.checkItem(item)) { 
                 if (store.checkStock(item)) { 
                     store.buy(user, item);
+                    user.removeFromShoppingList(item);
                 } else {
                     suggestItem(item);
                 }
@@ -64,11 +65,13 @@ public class Employee {
         // suggests item
         // give hint about where item might be --> ie suggests different store
         // adds item to shopping list!
+        // if item not in stock, suggest store name? 
+        // if item does not exist then say that the item doesnt exist 
     }
 
     /**
      * Gets input from user & converts it to a string
-     * @return string formatted user input 
+     * @return string formatted user input                                                              
      */
     public String getInput() { 
         Scanner input = new Scanner(System.in);  

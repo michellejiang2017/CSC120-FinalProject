@@ -7,8 +7,6 @@ public class User {
     private int age;
     private String gender;
     private double money;
-    private boolean hasCar;
-    private int parkingSpot;
     private List<String> shoppingList; 
     private int hunger; // starts at zero and increases with every exit. 
 
@@ -18,8 +16,6 @@ public class User {
         this.age = age;
         this.gender = gender;
         this.money = money;
-        this.hasCar = hasCar;
-        this.parkingSpot = -1;
         this.shoppingList = new ArrayList<>();
         this.hunger = hunger; 
     }
