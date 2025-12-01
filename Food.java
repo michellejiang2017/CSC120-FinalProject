@@ -1,4 +1,4 @@
-public class Food {
+public class Food extends Store {
     String name; 
     boolean type; // false for snack true for meal
     int nourishment; 
@@ -11,6 +11,7 @@ public class Food {
      * @param type the type of restaurant (snack or meal)
      */
     public Food(String name, boolean type) { 
+        super(name, 1); // each store only have 1 food item
         this.name = name; 
         this.type = type; 
         if (this.type) { 
