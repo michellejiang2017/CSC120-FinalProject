@@ -3,9 +3,9 @@ import java.util.Map;
 
 public class Store {
     protected String name;
-    protected Map<String, Double> items;   // all items & stock needs to be lowercase no whitespace
-    protected Map<String, Integer> stock;  
-    protected int capacity;      // capacity of items?        
+    protected Map<String, Double> stock;   // name and price of item in stock all stock needs to be lowercase no whitespace
+    //protected ArrayList<String> stock;  not sure what this is...
+    protected int capacity;      // capacity of items? number of types of items    
 
     public Store(String name, int capacity) {
         this.name = name;
@@ -13,7 +13,11 @@ public class Store {
     }
 
     public String getName() {
-        return name;
+        return this.name;
+    }
+
+    public Map<String, Double> getStock() { 
+        return this.stock; 
     }
 
     public void enter(User user) {
@@ -51,8 +55,12 @@ public class Store {
      * Checks if item is in shopping list
      * @return true if item in list false otherwise
      */
-    public boolean checkItem(String item) { 
-        return true; 
+    public boolean checkList(String item, User user) { 
+        if (user.getList().indexOf(item) != -1) {
+            return true; 
+        } else {
+            return false; 
+        }
     }
 
     /**
@@ -60,6 +68,10 @@ public class Store {
      * @return true if item in list false otherwise
      */
     public boolean checkStock(String item) {
-        return true; 
+        if (this.getStock().containsKey(item)) {
+            return true; 
+        } else {
+            return false; 
+        }
     }
 }

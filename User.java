@@ -7,7 +7,7 @@ public class User {
     private int age;
     private String gender;
     private double money;
-    private List<String> shoppingList; 
+    private ArrayList<String> shoppingList; 
     private int hunger; // starts at zero and increases with every exit. 
 
     // use scanner to get input for the constructor
@@ -35,6 +35,10 @@ public class User {
         string = string.trim(); 
         string = string.toLowerCase(); 
         return string; 
+    }
+
+    public ArrayList<String> getList() { 
+        return this.shoppingList; 
     }
     
     public void addToShoppingList(String item) {
