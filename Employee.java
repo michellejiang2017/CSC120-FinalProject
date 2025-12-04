@@ -31,9 +31,10 @@ public class Employee {
      * Asks user to buy items from inventory 
      */
     public void mainConversation() { 
-        //while (item != "exit") {
+        boolean stillPlaying = true; 
+        Scanner scannerInput = new Scanner(System.in); 
+        do {
             System.out.println("What would you like to purchase from this store? (Type 'exit' to leave store)");
-            Scanner scannerInput = new Scanner(System.in);  
             String string = scannerInput.toString();
             string = string.trim(); 
             string = string.toLowerCase(); 
@@ -58,20 +59,20 @@ public class Employee {
                 }
                 // give option to add item to list and if no then choose to exit store? 
             }
-        //} 
-        //System.out.println("Goodbye! ");
-        //store.exit(user);
+        } while (stilPlaying);
+        System.out.println("Goodbye! ");
+        store.exit(user);
     }
 
     /** 
     // * Given the desired item of the user, suggests the next item in the inventory -- OR suggests similar item
     // */
     //public void suggestItem(String item) { 
-    //    // suggests item
-    //    // give hint about where item might be --> ie suggests different store
-    //    // adds item to shopping list!
-    //    // if item not in stock, suggest store name? 
-    //    // if item does not exist then say that the item doesnt exist 
+    // suggests item
+    // give hint about where item might be --> ie suggests different store
+    // adds item to shopping list!
+    // if item not in stock, suggest store name? 
+    // if item does not exist then say that the item doesnt exist 
     //}
 
     /**
@@ -88,7 +89,7 @@ public class Employee {
     }
     
     public static void main(String[] args) {
-        Store store = new Store("Walmart", 10);
+        Store store = new Store("Walmart", 10, "East", "First");
         User user = new User("Michelle", 19, "female", 1000, false, 0);
         Employee employee = new Employee(store, user); 
         employee.greetCustomer();

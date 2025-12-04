@@ -10,8 +10,8 @@ public class Food extends Store {
      * @param name the name of the restaurant
      * @param type the type of restaurant (snack or meal)
      */
-    public Food(String name, boolean type) { 
-        super(name, 1); // each store only have 1 food item
+    public Food(String name, String wing, String floor, boolean type) { 
+        super(name, 1, wing, floor); // each store only have 1 food item
         this.name = name; 
         this.type = type; 
         if (this.type) { 
