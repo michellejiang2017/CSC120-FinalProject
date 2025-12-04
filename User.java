@@ -44,9 +44,9 @@ public class User {
         return this.shoppingList; 
     }
     
-     public void addToShoppingList(String item) {
+     public void addToShoppingList(String item, Store store) {
         // if item exists in inventory then add to shopping list else sout "item not found"
-        if (StoreInventory.getInventory().contains(item)) {
+        if (store.checkStock(item) == true) {
             this.shoppingList.add(item);
         }
     }
