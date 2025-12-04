@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class User {
     private String name;
-    private int age;
-    private String gender;
     private double money;
     private ArrayList<String> shoppingList; 
     private int hunger; // starts at zero and increases with every exit. 
@@ -13,11 +11,16 @@ public class User {
     // use scanner to get input for the constructor
     public User(String name, int age, String gender, double money, boolean hasCar, int hunger) {
         this.name = name;
-        this.age = age;
-        this.gender = gender;
         this.money = money;
         this.shoppingList = new ArrayList<>();
         this.hunger = hunger; 
+        if (hasCar) {
+            System.out.println("I see you have a car with you today. Go ahead and park it in any available spot!");
+            park();
+        } else {
+            System.out.println("I see you do not have a car with you today. Feel free to walk right in!");
+        }
+        System.out.println("I see you have $" + money + " to spend today.");
     }
 
     public String getName() {
@@ -41,8 +44,11 @@ public class User {
         return this.shoppingList; 
     }
     
-    public void addToShoppingList(String item) {
-        
+     public void addToShoppingList(String item) {
+        // if item exists in inventory then add to shopping list else sout "item not found"
+        if (StoreInventory.getInventory().contains(item)) {
+            this.shoppingList.add(item);
+        }
     }
 
     public void removeFromShoppingList(String item) {
@@ -61,15 +67,13 @@ public class User {
 
     }
 
-    public void park(int spotNumber) { 
-
+     public void park() { 
+        System.out.println("Congratulations! You've found parking!");
+        System.out.println("Unfortunately it's a long walk to the mall, so you will be more hungry. Your new hunger is" + (this.hunger + 1));
     }
+
 
     public void shop(double price) { 
-
-    }
-
-    public void useBathroom() { 
 
     }
 

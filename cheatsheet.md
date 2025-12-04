@@ -2,6 +2,41 @@ This file will contain documentation for all commands available in your game.
 
 Note:  It's a good idea to also make this list available inside the game, in response to a `HELP` command.
 
+- enter(User user): Allows user to enter the store of their choosing (Store.java)
+- exit(User user): Allows user to exit the store, should increase hunger (Store.java)
+- browse(User user): Allows user to browse items in a given store (Store.java)
+- buy(User user, String itemName): 
+- restock(String itemName, int amount):
+- addItem(String itemName, double price, int amount)
+- goUp(): Allows user to change their activeFloor by +1
+- goDown(): Allows user to change their activeFloor by -1
+- showOptions(): 
+
+    public void showOptions() {
+        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
+    }
+
+    public String toString() {
+        return this.name + " is a " + this.nFloors + "-story building located at " + this.address + ".";
+    }
+
+public void dine(int hunger, double money) { 
+        hunger += this.nourishment; 
+        money -= this.price; 
+    }
+}
+
+public Vehicle(String model) {
+        this.model = model;
+    }
+
+    public void drive(String destination) {
+       
+    }
+
+    public void park(ParkingLot lot) {
+        
+    }
 
 # SPOILER ALERT
 
