@@ -1,3 +1,7 @@
+# Miscellaneous
+- Every class has a menu method 
+- user is able to be redirected to menu? 
+
 # Introduction
 "Welcome to The Capitalism Experience!" 
 - Get information about user like name and user which will determine the type of user
