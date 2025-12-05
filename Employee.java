@@ -13,11 +13,13 @@ public class Employee {
     // Attributes 
     Store store; 
     User user; 
+    Scanner scannerInput; 
 
     // Constructor
     public Employee(Store store, User user) {
         this.store = store; 
         this.user = user; 
+        this.scannerInput = new Scanner(System.in); 
     }
 
     /**
@@ -32,20 +34,19 @@ public class Employee {
      */
     public void mainConversation() { 
         boolean stillPlaying = true; 
-        Scanner scannerInput = new Scanner(System.in); 
         do {
             System.out.println("What would you like to purchase from this store? (Type 'exit' to leave store)");
-            String string = scannerInput.toString();
-            string = string.trim(); 
-            string = string.toLowerCase(); 
-            scannerInput.close();
-            String item = string; 
+            String item = getInput(); 
+            if (item.equals("exit")) {
+                stillPlaying = false;
+                break; 
+            }
             if (store.checkList(item, user)) { 
                 if (store.checkStock(item)) { 
                     store.buy(user, item);
                     user.removeFromShoppingList(item);
                 } else {
-                    System.out.println(item + "is not in the store. Please find the item in another store! (press the enter key)");
+                    System.out.println(item + " is not in the store. Please find the item in another store! (press the enter key)");
                     //suggestItem(item);
                 }
             } else {
@@ -55,11 +56,11 @@ public class Employee {
                 if (input == "add item") { 
                     System.out.println("What is the item you want to add?");
                     String userItem = this.getInput(); 
-                    user.addToShoppingList(userItem);
+                    user.addToShoppingList(userItem, this.store);
                 }
                 // give option to add item to list and if no then choose to exit store? 
             }
-        } while (stilPlaying);
+        } while (stillPlaying);
         System.out.println("Goodbye! ");
         store.exit(user);
     }
@@ -79,13 +80,8 @@ public class Employee {
      * Gets input from user & converts it to a string
      * @return string formatted user input                                                              
      */
-    public String getInput() { 
-        Scanner input = new Scanner(System.in);  
-        String string = input.toString();
-        string = string.trim(); 
-        string = string.toLowerCase(); 
-        input.close();
-        return string; 
+    private String getInput() { 
+        return scannerInput.nextLine().trim().toLowerCase();
     }
     
     public static void main(String[] args) {

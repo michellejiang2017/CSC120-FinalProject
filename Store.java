@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 
 public class Store {
@@ -6,12 +6,14 @@ public class Store {
     protected Map<String, Double> stock;   // name and price of item in stock all stock needs to be lowercase no whitespace
     //protected ArrayList<String> stock;  not sure what this is...
     protected int capacity;      // capacity of items? number of types of items    
-    protected Map<String, String> location; 
+    protected ArrayList<String> location; 
 
     public Store(String name, int capacity, String wing, String floor) {
         this.name = name;
         this.capacity = capacity;
-        this.location.put(wing, floor); // not sure if this is better than a list...
+        this.location = new ArrayList<String>();
+        this.location.add(wing); 
+        this.location.add(floor); 
     }
 
     public String getName() {
@@ -19,7 +21,7 @@ public class Store {
     }
 
     public Map<String, Double> getStock() { 
-        return this.stock; 
+        return this.stock; // back-end use
     }
 
     public void enter(User user) {
@@ -50,7 +52,7 @@ public class Store {
      * Prints inventory nicely (used in Employee class)
      */
     public void printInventory() { 
-
+        // front-end use
     }
 
     /**

@@ -48,6 +48,7 @@ public class User {
         // if item exists in inventory then add to shopping list else sout "item not found"
         if (store.checkStock(item) == true) {
             this.shoppingList.add(item);
+            System.out.println("You have added " + item + " into your shopping list.");
         }
     }
 
