@@ -20,7 +20,6 @@ public class User {
         return this.name;
     }
 
-<<<<<<< HEAD
     public double getMoney() { 
         return money; 
     }
@@ -29,37 +28,11 @@ public class User {
         this.money -= amount;
     }
 
-    public List<String> getShoppingList() {
+    public ArrayList<String> getShoppingList() {
         return shoppingList;
     }
 
     public void addToShoppingList(String item) {
-       
-=======
-    /**
-     * Gets input from user & converts it to a string
-     * @return string formatted user input 
-     */
-    public String getInput() { 
-        Scanner input = new Scanner(System.in);  
-        input.close();
-        String string = input.toString();
-        string = string.trim(); 
-        string = string.toLowerCase(); 
-        return string; 
-    }
-
-    public ArrayList<String> getList() { 
-        return this.shoppingList; 
-    }
-    
-     public void addToShoppingList(String item, Store store) {
-        // if item exists in inventory then add to shopping list else sout "item not found"
-        if (store.checkStock(item) == true) {
-            this.shoppingList.add(item);
-            System.out.println("You have added " + item + " into your shopping list.");
-        }
->>>>>>> a14376c7578516686aa17e0d5ce5401dfc6d7813
     }
 
     public void removeFromShoppingList(String item) {
@@ -82,13 +55,9 @@ public class User {
 
     }
 
-<<<<<<< HEAD
-    public void eat(String food) { 
-        
-=======
+
     public void eat(Food food) { 
         food.dine(this.hunger, this.money);
->>>>>>> a14376c7578516686aa17e0d5ce5401dfc6d7813
     }
 
     public void play(String game) { 
