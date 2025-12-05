@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class User {
@@ -9,17 +8,11 @@ public class User {
     private int hunger; // starts at zero and increases with every exit. 
 
     // use scanner to get input for the constructor
-    public User(String name, int age, String gender, double money, boolean hasCar, int hunger) {
+    public User(String name, int age, String gender, double money, int hunger) {
         this.name = name;
         this.money = money;
         this.shoppingList = new ArrayList<>();
         this.hunger = hunger; 
-        if (hasCar) {
-            System.out.println("I see you have a car with you today. Go ahead and park it in any available spot!");
-            park();
-        } else {
-            System.out.println("I see you do not have a car with you today. Feel free to walk right in!");
-        }
         System.out.println("I see you have $" + money + " to spend today.");
     }
 
@@ -68,12 +61,6 @@ public class User {
 
     }
 
-     public void park() { 
-        System.out.println("Congratulations! You've found parking!");
-        System.out.println("Unfortunately it's a long walk to the mall, so you will be more hungry. Your new hunger is" + (this.hunger + 1));
-    }
-
-
     public void shop(double price) { 
 
     }
@@ -85,4 +72,4 @@ public class User {
     public void play(String game) { 
 
     }
-}  //UDAPESSSS
+}  

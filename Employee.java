@@ -48,36 +48,23 @@ public class Employee {
                     user.removeFromShoppingList(item);
                 } else {
                     System.out.println(item + " is not in the store. Please find the item in another store! (press ENTER)");
-                    //suggestItem(item);
+                    suggestStore(item);
                 }
             } else {
                 System.out.println(item + "is not in shopping list. Either add item to list or exit store. ('add item' or press ENTER)");
                 String input = this.getInput(); 
                 if (input == null) continue; 
-                // spaghetti code...
                 if (input == "add item") { 
                     System.out.println("What is the item you want to add?");
                     String userItem = this.getInput(); 
                     if (userItem == null) continue; 
                     user.addToShoppingList(userItem, this.store);
                 }
-                // give option to add item to list and if no then choose to exit store? 
             }
         } while (stillPlaying);
         System.out.println("Goodbye! ");
         store.exit(user);
     }
-
-    /** 
-    // * Given the desired item of the user, suggests the next item in the inventory -- OR suggests similar item
-    // */
-    //public void suggestItem(String item) { 
-    // suggests item
-    // give hint about where item might be --> ie suggests different store
-    // adds item to shopping list!
-    // if item not in stock, suggest store name? 
-    // if item does not exist then say that the item doesnt exist 
-    //}
 
     /**
      * Gets input from user & converts it to a string
@@ -86,10 +73,56 @@ public class Employee {
     private String getInput() { 
         return scannerInput.nextLine().trim().toLowerCase();
     }
+
+    /**
+     * Suggests another store in the mall that is likely to carry the given item.
+     * This uses simple keyword matching against a small set of known stores in the mall.
+     * If no good match is found, it prints a generic suggestion to check other wings.
+     */
+    public void suggestStore(String item) {
+        if (item == null || item.isEmpty()) {
+            System.out.println("No item given to suggest for.");
+            return;
+        }
+        String it = item.toLowerCase();
+        String suggestion = null;
+
+        // simple keyword-based suggestions
+        if (it.contains("phone") || it.contains("charger") || it.contains("electronics") || it.contains("tv") || it.contains("laptop")) {
+            suggestion = "Best Buy";
+        } else if (it.contains("book") || it.contains("novel") || it.contains("magazine")) {
+            suggestion = "Barnes & Noble";
+        } else if (it.contains("furniture") || it.contains("sofa") || it.contains("bed") || it.contains("table")) {
+            suggestion = "Ikea";
+        } else if (it.contains("food") || it.contains("burger") || it.contains("fries") || it.contains("meal") || it.contains("pizza") || it.contains("tea") || it.contains("coffee")) {
+            suggestion = "Try a food vendor (e.g., McDonald's, Starbucks, Insomnia Cookies, NiceTea)";
+        } else if (it.contains("makeup") || it.contains("perfume") || it.contains("cosmetic") || it.contains("skincare")) {
+            suggestion = "Sephora";
+        } else if (it.contains("clothes") || it.contains("shirt") || it.contains("dress") || it.contains("jacket") || it.contains("pants")) {
+            suggestion = "Marshalls, TJ Maxx, or Burlington";
+        } else if (it.contains("toy") || it.contains("game") || it.contains("console")) {
+            suggestion = "GameStop or Best Buy";
+        } else if (it.contains("cookies") || it.contains("dessert") || it.contains("sweets")) {
+            suggestion = "Insomnia Cookies";
+        }
+
+        if (suggestion != null) {
+            System.out.println("Suggestion: Try '" + suggestion + "' to find '" + item + "'.");
+        } else {
+            System.out.println("I couldn't find a specific store for '" + item + "'. Try checking other wings or browsing the mall map.");
+        }
+    }
     
     public static void main(String[] args) {
-        Store store = new Store("Walmart", 10, "East", "First");
-        User user = new User("Michelle", 19, "female", 1000, false, 0);
+        Store store = new Store("Walmart", "East", "First");
+        store.addItem("laptop", 999.99);
+        store.addItem("headphones", 199.99);
+        store.addItem("coffee", 4.99);
+        store.addItem("tshirt", 10);
+        store.addItem("jeans", 20);
+        store.addItem("tea", 5);
+        store.addItem("milk", 5);
+        User user = new User("Michelle", 19, "female", 1000, 0);
         Employee employee = new Employee(store, user); 
         employee.greetCustomer();
         employee.mainConversation();

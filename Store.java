@@ -1,58 +1,75 @@
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.HashMap;
 
 public class Store {
     protected String name;
-    protected Map<String, Double> stock;   // name and price of item in stock all stock needs to be lowercase no whitespace
-    //protected ArrayList<String> stock;  not sure what this is...
-    protected int capacity;      // capacity of items? number of types of items    
+    protected HashMap<String, Double> stock;   // name and price of item in stock all stock needs to be lowercase no whitespace 
     protected ArrayList<String> location; 
 
-    public Store(String name, int capacity, String wing, String floor) {
+    public Store(String name, String wing, String floor) {
         this.name = name;
-        this.capacity = capacity;
         this.location = new ArrayList<String>();
         this.location.add(wing); 
         this.location.add(floor); 
+        this.stock = new HashMap<String, Double>();
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Map<String, Double> getStock() { 
+    public HashMap<String, Double> getStock() { 
         return this.stock; // back-end use
     }
 
     public void enter(User user) {
-       
+        if (user == null) {
+            throw new RuntimeException("No user provided to enter the store.");
+        }
+        System.out.println(user.getName() + " entered " + this.name + ". Welcome!");
     }
 
     public void exit(User user) {
-        
+        if (user == null) {
+            throw new RuntimeException("No user provided to exit the store.");
+        }
+        System.out.println(user.getName() + " has left " + this.name + ". Goodbye!");
     }
 
     public void browse(User user) {
-       
+        System.out.println("Browsing " + this.name + " inventory:");
+        printInventory();
     }
 
     public void buy(User user, String itemName) {
        
     }
 
-    public void restock(String itemName, int amount) {
-       
-    }
-
-    public void addItem(String itemName, double price, int amount) {
-       
+    /**
+     * Adds item to store inventory
+     * @param itemName the name of item
+     * @param price the item's price 
+     */
+    public void addItem(String itemName, double price) {
+        if (itemName == null || itemName.isEmpty()) {
+            System.out.println("Invalid item name.");
+            return;
+        }
+        this.stock.put(itemName.toLowerCase(), price);
+        System.out.println("Added " + itemName + " to " + this.name + " at price $" + price + ".");
     }
 
     /**
      * Prints inventory nicely (used in Employee class)
      */
     public void printInventory() { 
-        // front-end use
+        if (this.stock == null || this.stock.isEmpty()) {
+            System.out.println("No items in inventory.");
+            return;
+        }
+        for (HashMap.Entry<String, Double> e : this.stock.entrySet()) {
+            System.out.println("- " + e.getKey() + ": $" + e.getValue());
+        }
     }
 
     /**
