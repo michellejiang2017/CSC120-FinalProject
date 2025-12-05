@@ -28,7 +28,9 @@ public class Store {
         System.out.println(user.getName() + " entered " + name);
     }
 
-    /** Print inventory of the store */
+    /** 
+     * Print inventory of the store 
+     */
     public void printInventory() {
         System.out.println("The inventory of this store:");
         for (String item : items.keySet()) {

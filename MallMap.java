@@ -11,6 +11,35 @@ public class MallMap extends Building {
         wings.add(new Wing("East"));
         wings.add(new Wing("South"));
         wings.add(new Wing("West"));
+        addInitialStores();
+    }
+
+    private void addInitialStores() {
+    Wing north = wings.get(0);
+    north.addStore(1, new Store("Walmart"));
+    north.addStore(1, new Store("Whole Foods"));
+    north.addStore(2, new Store("Furniture"));
+    north.addStore(2, new Store("Ikea"));
+
+    Wing east = wings.get(1);
+    east.addStore(1, new Store("Best Buy"));
+    east.addStore(1, new Store("AT&T"));
+    east.addStore(1, new Store("GameStop"));
+    east.addStore(1, new Store("Popeyes"));
+    east.addStore(2, new Store("Barnes & Noble"));
+    east.addStore(2, new Store("Starbucks"));
+
+    Wing south = wings.get(2);
+    south.addStore(1, new Store("Burlington"));
+    south.addStore(1, new Store("Sephora"));
+    south.addStore(2, new Store("Swarovski"));
+    south.addStore(2, new Store("Tiffany & Co."));
+
+    Wing west = wings.get(3);
+    west.addStore(1, new Store("Marshalls"));
+    west.addStore(1, new Store("TJ Maxx"));
+    west.addStore(2, new Store("Thrift Store"));
+    west.addStore(2, new Store("Vintage Finds"));
     }
 
     public Wing getCurrentWing() {
@@ -37,5 +66,16 @@ public class MallMap extends Building {
         throw new RuntimeException("Store not found.");
     }
 
+    public static void main(String[] args) {
+
+        MallMap mall = new MallMap("Mall", "Northampton", 2);
+        mall.enter();  
+        mall.moveToWing(0);    
+        mall.showStores();     
+
+        Store target = mall.findStore("Walmart");
+        System.out.println("Found store: " + target.getName());
+       
+    }
     
 }
