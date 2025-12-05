@@ -1,6 +1,13 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * File name: Store.java
+ * Author: Selina Fang
+ * Description: 
+ * Date: 2025-12-5
+ */
+
 public class Store {
     protected String name;
     protected Map<String, Double> items;  
