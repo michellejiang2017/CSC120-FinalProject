@@ -36,7 +36,8 @@ public class Employee {
         boolean stillPlaying = true; 
         do {
             System.out.println("What would you like to purchase from this store? (Type 'exit' to leave store)");
-            String item = getInput(); 
+            String item = this.getInput(); 
+            if (item == null) continue;
             if (item.equals("exit")) {
                 stillPlaying = false;
                 break; 
@@ -46,16 +47,18 @@ public class Employee {
                     store.buy(user, item);
                     user.removeFromShoppingList(item);
                 } else {
-                    System.out.println(item + " is not in the store. Please find the item in another store! (press the enter key)");
+                    System.out.println(item + " is not in the store. Please find the item in another store! (press ENTER)");
                     //suggestItem(item);
                 }
             } else {
-                System.out.println(item + "is not in shopping list. Either add item to list or exit store. ('add item' or press the enter key)");
+                System.out.println(item + "is not in shopping list. Either add item to list or exit store. ('add item' or press ENTER)");
                 String input = this.getInput(); 
+                if (input == null) continue; 
                 // spaghetti code...
                 if (input == "add item") { 
                     System.out.println("What is the item you want to add?");
                     String userItem = this.getInput(); 
+                    if (userItem == null) continue; 
                     user.addToShoppingList(userItem, this.store);
                 }
                 // give option to add item to list and if no then choose to exit store? 
