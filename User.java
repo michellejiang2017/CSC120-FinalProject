@@ -24,6 +24,18 @@ public class User {
         return this.name;
     }
 
+    public double getMoney() { 
+        return money; 
+    }
+
+    public void spendMoney(double amount) {
+        this.money -= amount;
+    }
+
+    public List<String> getShoppingList() {
+        return shoppingList;
+    }
+
     public void addToShoppingList(String item) {
        
     }
@@ -44,15 +56,7 @@ public class User {
 
     }
 
-    public void park(int spotNumber) { 
-
-    }
-
     public void shop(double price) { 
-
-    }
-
-    public void useBathroom() { 
 
     }
 
