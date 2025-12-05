@@ -58,7 +58,7 @@ public class Employee {
                     System.out.println("What is the item you want to add?");
                     String userItem = this.getInput(); 
                     if (userItem == null) continue; 
-                    user.addToShoppingList(userItem, this.store);
+                    user.addToShoppingList(userItem);
                 }
             }
         } while (stillPlaying);
@@ -114,7 +114,7 @@ public class Employee {
     }
     
     public static void main(String[] args) {
-        Store store = new Store("Walmart", "East", "First");
+        Store store = new Store("Walmart");
         store.addItem("laptop", 999.99);
         store.addItem("headphones", 199.99);
         store.addItem("coffee", 4.99);

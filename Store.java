@@ -15,6 +15,20 @@ public class Store {
     }
 
     /** 
+     * Check the shoppinglist
+     */
+    public boolean checkList(String item, User user) {
+        return user.getShoppingList().contains(item.toLowerCase());
+    }
+
+     /** 
+     * Check whether the item exists in the store
+     */
+    public boolean checkStock(String item) {
+        return items.containsKey(item.toLowerCase());
+    }
+
+    /** 
      * Add item with price
      */
     public void addItem(String itemName, double price) {
@@ -50,7 +64,11 @@ public class Store {
             throw new RuntimeException("Not enough money to buy the item.");
         }
         user.spendMoney(price);
-        System.out.println(user.getName() + " bought " + itemName + " for $" + price);
+        System.out.println("You bought " + itemName + " for $" + price);
+    }
+
+    public void exit(User user) {
+        System.out.println("You left this store.");
     }
 
     /** 

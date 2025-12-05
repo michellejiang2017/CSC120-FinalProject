@@ -18,7 +18,7 @@ public class MallMap extends Building {
     Wing north = wings.get(0);
     north.addStore(1, new Store("Walmart"));
     north.addStore(1, new Store("Whole Foods"));
-    north.addStore(2, new Store("Popeyes"));
+    north.addStore(2, new Store("Play Zone"));
     north.addStore(2, new Store("Ikea"));
 
     Wing east = wings.get(1);
