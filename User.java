@@ -1,6 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * File name: User.java
+ * Author: Selina Fang
+ * Description: 
+ * Date: 2025-12-5
+ */
+
 public class User {
     private String name;
     private double money;
@@ -32,11 +39,19 @@ public class User {
         return shoppingList;
     }
 
+    /**
+     * Add an item to the shopping list
+     * @param item the name of the item that the user wants to add to their shopping list
+     */
     public void addToShoppingList(String item) {
         shoppingList.add(item);
         System.out.println(item + " has been added to your shopping list.");
     }
 
+    /**
+     * Remove an item to the shopping list
+     * @param item the name of the item that the user wants to remove from their shopping list
+     */
     public void removeFromShoppingList(String item) {
         if (shoppingList.remove(item)) {
             System.out.println(item + " was removed from your shopping list.");
@@ -45,25 +60,46 @@ public class User {
         }
     }
 
+    /**
+     * Print the shopping list
+     */
     public void viewShoppingList() {
-        for (String item : shoppingList) {
-                System.out.println(item);
-            }
+        System.out.println("Shopping List:");
+        for (int i = 0; i < shoppingList.size(); i++) {
+            String item = shoppingList.get(i);
+            System.out.println(item);
+        }
     }
 
+    /**
+     * Enter the mall
+     */
     public void enterTheMall() {
         System.out.println("You entered the mall.");
         hunger += 1;
     }
 
+    /**
+     * leave the mall
+     * @throw RuntimeException if the uer did not buy all the stuff on the shopping list or they are too hungry
+     */
     public void leaveTheMall() { 
         System.out.println("You left the mall.");
+        if (shoppingList.isEmpty() || hunger <= 5) {
+            System.out.println("You won!!");
+        } else{
+            throw new RuntimeException("You failed the game!!");
+        }
     }
 
+    /**
+     * shop
+     * @throw RuntimeException if the user did not have enough money
+     * @param price the price of the item
+     */
     public void shop(double price) { 
          if (price > money) {
-            System.out.println("You do not have enough money for this purchase.");
-            return;
+            throw new RuntimeException("You do not have enough money for this purchase.");
         }
         money -= price;
         hunger += 1; 

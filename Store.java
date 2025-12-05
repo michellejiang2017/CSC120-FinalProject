@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +24,8 @@ public class Store {
 
     /** 
      * Check the shoppinglist
+     * @param item the item that the user want to check
+     * @param user the name of the user
      */
     public boolean checkList(String item, User user) {
         return user.getShoppingList().contains(item.toLowerCase());
@@ -30,6 +33,7 @@ public class Store {
 
      /** 
      * Check whether the item exists in the store
+     * @param item the item that the user want to check whether existing in this store
      */
     public boolean checkStock(String item) {
         return items.containsKey(item.toLowerCase());
@@ -37,9 +41,11 @@ public class Store {
 
     /** 
      * Add item with price
+     * @param item the name of the item that we want to add to the store
+     * @param price the price of the item that we want to add to the store
      */
-    public void addItem(String itemName, double price) {
-        items.put(itemName, price);
+    public void addItem(String item, double price) {
+        items.put(item, price);
     }
 
     /** 
@@ -54,40 +60,53 @@ public class Store {
      */
     public void printInventory() {
         System.out.println("The inventory of this store:");
-        for (String item : items.keySet()) {
+        Object[] keys = items.keySet().toArray();
+        for (int i = 0; i < keys.length; i++) {
+            String item = (String) keys[i];
             System.out.println(item + ": $" + items.get(item));
         }
     }
 
     /** 
      * User buys an item and reduce user's money
+     * @param item the item that the user want to buy
+     * @param user the name of the user
      */
-    public void buy(User user, String itemName) {
-        if (!items.containsKey(itemName)) {
-            throw new RuntimeException("Store does not sell this product.");
+    public void buy(User user, String item) {
+        if (!items.containsKey(item)) {
+            throw new RuntimeException("This store does not sell this product.");
         }
-        double price = items.get(itemName);
+        double price = items.get(item);
         if (user.getMoney() < price) {
-            throw new RuntimeException("Not enough money to buy the item.");
+            throw new RuntimeException("You do not have enough money to buy the item.");
         }
         user.spendMoney(price);
-        System.out.println("You bought " + itemName + " for $" + price);
+        user.removeFromShoppingList(item);
+        System.out.println("You successfully bought " + item + " for $" + price + ". It has been removed from your shopping list.");
     }
 
+    /** 
+     * Exit store
+     */
     public void exit(User user) {
         System.out.println("You left this store.");
     }
 
     /** 
      * Compare shopping list with store inventory so that the user can automatically buy stuff  
+     * @param user the name of the user
+     * @throw RuntimeException if nothing in the shopping list is found in this store.
      */
     public void buyFromShoppingList(User user) {
-        for (String need : user.getShoppingList()) {
+        ArrayList<String> list = user.getShoppingList();
+        for (int i = 0; i < list.size(); i++) {
+            String need = list.get(i);
             if (items.containsKey(need)) {
-                System.out.println("Found " + need + " in store, and we are buying");
+                System.out.println("Found " + need + " in store, and we are buying it.");
                 buy(user, need);
-            } else {
-                System.out.println("Store does not have" + need);
+            } 
+            else {
+                throw new RuntimeException("Store does not have the" + need);
             }
         }
     }
