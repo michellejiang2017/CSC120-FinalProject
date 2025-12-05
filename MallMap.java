@@ -18,14 +18,12 @@ public class MallMap extends Building {
     Wing north = wings.get(0);
     north.addStore(1, new Store("Walmart"));
     north.addStore(1, new Store("Whole Foods"));
-    north.addStore(2, new Store("Furniture"));
+    north.addStore(2, new Store("Popeyes"));
     north.addStore(2, new Store("Ikea"));
 
     Wing east = wings.get(1);
     east.addStore(1, new Store("Best Buy"));
     east.addStore(1, new Store("AT&T"));
-    east.addStore(1, new Store("GameStop"));
-    east.addStore(1, new Store("Popeyes"));
     east.addStore(2, new Store("Barnes & Noble"));
     east.addStore(2, new Store("Starbucks"));
 
@@ -71,11 +69,7 @@ public class MallMap extends Building {
         MallMap mall = new MallMap("Mall", "Northampton", 2);
         mall.enter();  
         mall.moveToWing(0);    
-        mall.showStores();     
-
-        Store target = mall.findStore("Walmart");
-        System.out.println("Found store: " + target.getName());
-       
+        mall.showStores();        
     }
     
 }
