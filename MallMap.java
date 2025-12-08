@@ -97,8 +97,8 @@ public class MallMap extends Building {
     */
     public void showLocation() {
         System.out.println("You are currently at: ");
-        System.out.println( wings.get(wing).getName()+"Wing");
-        System.out.println("Floor" + activeFloor);
+        System.out.println( wings.get(wing).getName()+" Wing");
+        System.out.println("Floor " + activeFloor);
     }
 
     /**

@@ -70,9 +70,11 @@ public class Store {
      */
     public void printInventory() {
         System.out.println("The inventory of this store:");
-        for (String itemName : items.keySet()) {
-            double price = items.get(itemName);
-            System.out.println(itemName + ": $" + price);
+        ArrayList<String> keys = new ArrayList<>(items.keySet());
+        for (int i = 0; i < keys.size(); i++) {
+            String name = keys.get(i);       
+            double price = items.get(name );  
+            System.out.println(name  + ": $" + price);
         }
     }
 
