@@ -13,9 +13,19 @@ public class Store {
     protected String name;
     protected Map<String, Double> items;  
 
+    public Store(String name, Inventory1 inventory) {
+        this.name = name;
+        this.items = inventory.getInventory(name); // inventory for the first floor
+    }
+
+    public Store(String name, Inventory2 inventory) {
+        this.name = name;
+        this.items = inventory.getInventory(name); // inventory for the second floor
+    }
+
     public Store(String name) {
         this.name = name;
-        this.items = new HashMap<>();
+        this.items = new HashMap<>();   // empty inventory
     }
 
     public String getName() {
@@ -60,10 +70,9 @@ public class Store {
      */
     public void printInventory() {
         System.out.println("The inventory of this store:");
-        Object[] keys = items.keySet().toArray();
-        for (int i = 0; i < keys.length; i++) {
-            String item = (String) keys[i];
-            System.out.println(item + ": $" + items.get(item));
+        for (String itemName : items.keySet()) {
+            double price = items.get(itemName);
+            System.out.println(itemName + ": $" + price);
         }
     }
 

@@ -3,6 +3,13 @@ import java.util.Scanner;
 
 /**
  * File name: User.java
+ * Author: Aris Benitez-Linarez
+ * Description: 
+ * Date: 2025-12-4
+ */
+
+/**
+ * File name: User.java
  * Author: Selina Fang
  * Description: 
  * Date: 2025-12-5
@@ -106,6 +113,13 @@ public class User {
         System.out.println("You spent $" + price + ", and your remaining money is $" + money);
     }
     
+    /**
+     * add the user's hunger
+     */
+    public void addHunger() {
+        this.hunger += 1;
+    }
+
     public void eat(Food food) { 
         food.dine(this.hunger, this.money);
         this.hunger = 0; 
