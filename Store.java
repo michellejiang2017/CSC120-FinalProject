@@ -28,6 +28,10 @@ public class Store {
         this.items = new HashMap<>();   // empty inventory
     }
 
+    /**
+     * Get the name of the store
+     * @return the name of the store
+     */
     public String getName() {
         return this.name;
     }
