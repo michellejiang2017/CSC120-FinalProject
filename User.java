@@ -42,13 +42,27 @@ public class User {
         this.money -= amount;
     }
 
+    public void changeMoney(double delta) {
+        this.money += delta;
+    }
+
     public ArrayList<String> getShoppingList() {
         return shoppingList;
+    }
+
+    public void changeHunger(int delta) {
+        this.hunger += delta;
+        System.out.println("Your hunger is now " + this.hunger + ".");
+    }
+
+    public boolean testHunger() {
+        return this.hunger >= 5;
     }
 
     /**
      * Add an item to the shopping list
      * @param item the name of the item that the user wants to add to their shopping list
+     * need to add inventory check!! --> check mall inventory 
      */
     public void addToShoppingList(String item) {
         shoppingList.add(item);
@@ -60,10 +74,19 @@ public class User {
      * @param item the name of the item that the user wants to remove from their shopping list
      */
     public void removeFromShoppingList(String item) {
-        if (shoppingList.remove(item)) {
-            System.out.println(item + " was removed from your shopping list.");
+        if (item == null) return;
+        boolean removed = false;
+        for (int i = 0; i < this.shoppingList.size(); i++) {
+            if (this.shoppingList.get(i).equalsIgnoreCase(item)) {
+                this.shoppingList.remove(i);
+                removed = true;
+                break;
+            }
+        }
+        if (removed) {
+            System.out.println("Removed " + item + " from your shopping list.");
         } else {
-            throw new RuntimeException("It is not in your shopping list.");
+            System.out.println(item + " was not found in your shopping list.");
         }
     }
 
@@ -71,10 +94,13 @@ public class User {
      * Print the shopping list
      */
     public void viewShoppingList() {
-        System.out.println("Shopping List:");
-        for (int i = 0; i < shoppingList.size(); i++) {
-            String item = shoppingList.get(i);
-            System.out.println(item);
+        System.out.println("Your shopping list:");
+        if (this.shoppingList == null || this.shoppingList.isEmpty()) {
+            System.out.println(" - (empty)");
+            return;
+        }
+        for (String s : this.shoppingList) {
+            System.out.println(" - " + s);
         }
     }
 
@@ -83,7 +109,6 @@ public class User {
      */
     public void enterTheMall() {
         System.out.println("You entered the mall.");
-        hunger += 1;
     }
 
     /**
@@ -109,7 +134,6 @@ public class User {
             throw new RuntimeException("You do not have enough money for this purchase.");
         }
         money -= price;
-        hunger += 1; 
         System.out.println("You spent $" + price + ", and your remaining money is $" + money);
     }
     
@@ -122,7 +146,6 @@ public class User {
 
     public void eat(Food food) { 
         food.dine(this.hunger, this.money);
-        this.hunger = 0; 
 
     }
 

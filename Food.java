@@ -29,8 +29,16 @@ public class Food extends Store {
      * @param hunger
      * @param money
      */
-    public void dine(int hunger, double money) { 
-        hunger += this.nourishment; 
-        money -= this.price; 
+    public void dine(User user) { 
+        if (user == null) return;
+        // reduce hunger and charge the user
+        try {
+            user.shop(this.price);
+            user.changeHunger(this.nourishment);
+        } catch (Exception e) {
+            System.out.println("Could not complete purchase at " + this.name + ": " + e.getMessage());
+            return; 
+        }
+        System.out.println(user.getName() + " ate at " + this.name + " and paid $" + this.price + ".");
     }
 }

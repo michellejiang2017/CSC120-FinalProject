@@ -112,4 +112,12 @@ public class Inventory2 {
             return new HashMap<>(); 
         }
     }
+
+    /**
+     * Get all inventories
+     * @return all inventories
+     */
+    public Map<String, Map<String, Double>> getInventories() {
+        return inventories;
+    }
 }

@@ -26,7 +26,8 @@ public class Employee {
      * Initial user greeting 
      */
     public void greetCustomer() { 
-        System.out.println("Hello " + this.user.getName() + ", welcome to " + this.store.getName() + "! ");
+        System.out.println("Here is our inventory: ");
+        this.store.printInventory();
     }
 
     /**
