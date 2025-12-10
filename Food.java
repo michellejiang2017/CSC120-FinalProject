@@ -1,3 +1,9 @@
+/**
+ * File name: Food.java
+ * Author: Michelle Jiang
+ * Description: 
+ * Date: 2025-12-5
+ */
 public class Food extends Store {
     String name; 
     boolean type; // false for snack true for meal
@@ -26,8 +32,7 @@ public class Food extends Store {
     /**
      * A simulation for when the user dines at the restaurant. 
      * Diminishes hunger by nutrition amount and money by cost of food. 
-     * @param hunger
-     * @param money
+     * @param user the name of the user
      */
     public void dine(User user) { 
         if (user == null) return;

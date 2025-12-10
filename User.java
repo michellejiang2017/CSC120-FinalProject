@@ -1,16 +1,7 @@
 import java.util.ArrayList;
-import java.util.Scanner;
-
 /**
  * File name: User.java
- * Author: Aris Benitez-Linarez
- * Description: 
- * Date: 2025-12-4
- */
-
-/**
- * File name: User.java
- * Author: Selina Fang
+ * Author: Selina Fang, Aris Benitez-Linarez, Michelle Jiang
  * Description: 
  * Date: 2025-12-5
  */
@@ -70,7 +61,7 @@ public class User {
     }
 
     /**
-     * Remove an item to the shopping list
+     * Remove an item to the shopping list (note: user should be able to remove items from the shopping list even if they are not purchased)
      * @param item the name of the item that the user wants to remove from their shopping list
      */
     public void removeFromShoppingList(String item) {
@@ -130,6 +121,10 @@ public class User {
      * @param price the price of the item
      */
     public void shop(double price) { 
+        if (price < 0) {
+            System.out.println("Invalid price.");
+            return;
+        }
          if (price > money) {
             throw new RuntimeException("You do not have enough money for this purchase.");
         }
@@ -145,7 +140,8 @@ public class User {
     }
 
     public void eat(Food food) { 
-        food.dine(this.hunger, this.money);
+        if (food == null) return;
+        food.dine(this);
 
     }
 

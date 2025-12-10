@@ -92,10 +92,7 @@ public class Store {
             throw new RuntimeException("This store does not sell this product.");
         }
         double price = items.get(item);
-        if (user.getMoney() < price) {
-            throw new RuntimeException("You do not have enough money to buy the item.");
-        }
-        user.spendMoney(price);
+        user.shop(price);
         user.removeFromShoppingList(item);
         System.out.println("You successfully bought " + item + " for $" + price + ". It has been removed from your shopping list.");
     }
@@ -105,6 +102,7 @@ public class Store {
      */
     public void exit(User user) {
         System.out.println("You left this store.");
+        user.addHunger();
     }
 
     /** 

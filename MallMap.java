@@ -142,6 +142,21 @@ public class MallMap extends Building {
         }
         throw new RuntimeException("The store is not found in this shopping mall.");
     }
+    /**
+     * Display current location and available options
+     */
+    public void showMallOptions() {
+        System.out.println("\n--- MALL MENU ---");
+        System.out.println("move <wing>       - Move to a wing (north, east, south, west)");
+        System.out.println("up                - Go up one floor");
+        System.out.println("down              - Go down one floor");
+        System.out.println("location          - Show current location");
+        System.out.println("visit <store>     - Enter a store");
+        System.out.println("list              - Show your shopping list");
+        System.out.println("balance           - View your balance");
+        System.out.println("hunger           - View your hunger level");
+        System.out.println("exit              - Leave the mall");
+    }
 
     public static void main(String[] args) {
 

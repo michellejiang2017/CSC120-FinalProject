@@ -16,10 +16,10 @@ public class Employee {
     Scanner scannerInput; 
 
     // Constructor
-    public Employee(Store store, User user) {
+    public Employee(Store store, User user, Scanner scannerInput) {
         this.store = store; 
         this.user = user; 
-        this.scannerInput = new Scanner(System.in); 
+        this.scannerInput = scannerInput; 
     }
 
     /**
@@ -62,7 +62,7 @@ public class Employee {
                 }
             }
         } while (stillPlaying);
-        System.out.println("Goodbye! ");
+        System.out.println("Goodbye!");
         store.exit(user);
     }
 
