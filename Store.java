@@ -83,7 +83,6 @@ public class Store {
      * Print inventory of the store 
      */
     public void printInventory() {
-        System.out.println("The inventory of this store:");
         ArrayList<String> keys = new ArrayList<>(items.keySet());
         for (int i = 0; i < keys.size(); i++) {
             String name = keys.get(i);       

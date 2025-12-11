@@ -13,6 +13,7 @@ public class Inventory1 {
     public Inventory1() {
         inventories = new HashMap<>();
         walmart();
+        wholeFoods();
         bestBuy();
         ATT();
         burlington();
@@ -28,6 +29,16 @@ public class Inventory1 {
         walmartItems.put("Water", 1.00);
         walmartItems.put("Towel", 9.99);
         inventories.put("walmart", walmartItems);
+    }
+
+    private void wholeFoods() {
+        Map<String, Double> wholeFoodsItems = new HashMap<>();
+        wholeFoodsItems.put("Sub", 20.00);
+        wholeFoodsItems.put("Pizza", 20.00);
+        wholeFoodsItems.put("Burger", 20.00);
+        wholeFoodsItems.put("Ramen", 20.99);
+        wholeFoodsItems.put("Sushi", 20.49);
+        inventories.put("whole foods", wholeFoodsItems);
     }
 
      private void bestBuy() {

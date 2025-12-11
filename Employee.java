@@ -46,7 +46,10 @@ public class Employee {
             if (store.checkList(item, user)) { 
                 if (store.checkStock(item)) { 
                     store.buy(user, item);
-                    user.removeFromShoppingList(item);
+                    if (store instanceof Food) {
+                        Food foodItem = (Food) store;
+                        user.eat(foodItem);
+                    }
                 } else {
                     System.out.println(item + " is not in the store. Please find the item in another store! (press ENTER)");
                 }

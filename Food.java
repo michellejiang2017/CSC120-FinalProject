@@ -16,34 +16,33 @@ public class Food extends Store {
      * @param name the name of the restaurant
      * @param type the type of restaurant (snack or meal)
      */
-    public Food(String name, String wing, String floor, boolean type) { 
-        super(name); // each store only have 1 food item
+    public Food(String name, Inventory1 inventory, boolean type) { 
+        super(name, inventory); // each store only have 1 food item
         this.name = name; 
         this.type = type; 
         if (this.type) { 
             this.nourishment = -5; 
-            this.price = 20.;
         } else { 
             this.nourishment = -1; 
-            this.price = 5.;
+        }
+    }
+
+    public Food(String name, Inventory2 inventory, boolean type) { 
+        super(name, inventory); // each store only have 1 food item
+        this.name = name; 
+        this.type = type; 
+        if (this.type) { 
+            this.nourishment = -5; 
+        } else { 
+            this.nourishment = -1; 
         }
     }
 
     /**
-     * A simulation for when the user dines at the restaurant. 
-     * Diminishes hunger by nutrition amount and money by cost of food. 
-     * @param user the name of the user
+     * Get the nourishment value of the food item.
+     * @return the nourishment value
      */
-    public void dine(User user) { 
-        if (user == null) return;
-        // reduce hunger and charge the user
-        try {
-            user.shop(this.price);
-            user.changeHunger(this.nourishment);
-        } catch (Exception e) {
-            System.out.println("Could not complete purchase at " + this.name + ": " + e.getMessage());
-            return; 
-        }
-        System.out.println(user.getName() + " ate at " + this.name + " and paid $" + this.price + ".");
+    public int getNourishment() {
+        return this.nourishment;
     }
 }

@@ -32,10 +32,6 @@ public class User {
         this.money -= amount;
     }
 
-    public void changeMoney(double delta) {
-        this.money += delta;
-    }
-
     public ArrayList<String> getShoppingList() {
         return shoppingList;
     }
@@ -70,7 +66,7 @@ public class User {
         if (item == null) return;
         boolean removed = false;
         for (int i = 0; i < this.shoppingList.size(); i++) {
-            if (this.shoppingList.get(i).equalsIgnoreCase(item)) {
+            if (this.shoppingList.get(i).equalsIgnoreCase(item.trim())) {
                 this.shoppingList.remove(i);
                 removed = true;
                 break;
@@ -143,8 +139,8 @@ public class User {
 
     public void eat(Food food) { 
         if (food == null) return;
-        food.dine(this);
-
+        this.changeHunger(food.getNourishment());
+        System.out.println("You ate some food from " + food.getName() + " and reduced your hunger by " + food.getNourishment() + ".");
     }
 
     public void play(String game) { 

@@ -32,7 +32,7 @@ public class MallMap extends Building {
     // the index of north wing is 0, and the user will enter the store from the north wing
     Wing north = wings.get(0);
     north.addStore(1, new Store("Walmart", inventory1));
-    north.addStore(1, new Store("Whole Foods"));
+    north.addStore(1, new Food("Whole Foods", inventory1, true));
     north.addStore(2, new Store("Play Zone", inventory2));
     north.addStore(2, new Store("Ikea", inventory2));
 
@@ -41,7 +41,7 @@ public class MallMap extends Building {
     east.addStore(1, new Store("Best Buy",inventory1));
     east.addStore(1, new Store("AT&T",inventory1));
     east.addStore(2, new Store("Barnes & Noble", inventory2));
-    east.addStore(2, new Store("Starbucks", inventory2));
+    east.addStore(2, new Food("Starbucks", inventory2,false));
 
     // the index of south wing is 2
     Wing south = wings.get(2);
@@ -238,8 +238,12 @@ public class MallMap extends Building {
                         }
                         String storeName = parts[1];
                         Store store = mall.findStore(storeName);
+                        if (user.testHunger() && !(store instanceof Food)) {
+                            System.out.println("You are too hungry to enter the store. Please eat some food first!");
+                        } else {
                         store.enter(user);
                         mall.visitStore(store, user, scanner);
+                        }
                         break;
                     case "list":
                         user.viewShoppingList();
