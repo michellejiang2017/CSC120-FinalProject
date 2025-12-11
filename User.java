@@ -52,13 +52,6 @@ public class User {
         return money; 
     }
 
-    /**
-     * Spend money
-     * @param amount the amount of money to spend
-     */
-    public void spendMoney(double amount) {
-        this.money -= amount;
-    }
 
     /**
      * Get the shopping list
@@ -165,7 +158,7 @@ public class User {
          if (price > money) {
             throw new RuntimeException("You do not have enough money for this purchase.");
         }
-        this.spendMoney(price);
+        this.money -= price;
         System.out.println("You spent $" + price + ", and your remaining money is $" + money);
     }
     
