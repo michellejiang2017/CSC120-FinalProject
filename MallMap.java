@@ -270,6 +270,10 @@ public class MallMap extends Building {
                         System.out.println("Your current hunger level is: " + user.getHungerLevel());
                         break;
                     case "exit":
+                        if (user.testHunger() && !user.getShoppingList().isEmpty()) {
+                            System.out.println("You cannot leave the mall. Please eat some food first or make sure that your shopping list is empty!");
+                            break;
+                        }
                         shopping = false;
                         user.leaveTheMall();
                         System.out.println("Thank you for visiting " + mall.getName() + "! Goodbye!");
