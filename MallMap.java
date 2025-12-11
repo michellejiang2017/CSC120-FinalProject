@@ -92,14 +92,6 @@ public class MallMap extends Building {
     }
 
     /**
-     * Reduce the user's hunger
-     * @param user the name of the user
-     */
-    public void reduceHunger(User user) {
-        user.addHunger(); 
-    }
-
-    /**
     * Print the user's current location in the mall and it shows both the wing and the floor number.
     */
     public void showLocation() {
