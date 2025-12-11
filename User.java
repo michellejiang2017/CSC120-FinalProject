@@ -22,18 +22,6 @@ public class User {
         this.money = money;
         this.shoppingList = new ArrayList<>();
         this.hunger = 0; 
-        System.out.println("- enter(User user): Allows user to enter the store of their choosing (Store.java)\r\n" + //
-                        "- exit(User user): Allows user to exit the store, should increase hunger (Store.java)\r\n" + //
-                        "- browse(User user): Allows user to browse items in a given store (Store.java)\r\n" + //
-                        "- buy(User user, String itemName): Checks if user is in the store they want to buy from then allows them to buy the item they want\r\n" + //
-                        "- restock(String itemName, int amount):\r\n" + //
-                        "- addItem(String itemName, double price, int amount)\r\n" + //
-                        "- goUp(): Allows user to change their activeFloor by +1\r\n" + //
-                        "- goDown(): Allows user to change their activeFloor by -1\r\n" + //
-                        "- showOptions(): Prints where user can go and where they end up inclusing exit, goUp, goDown, and goToFloor \r\n" + //
-                        "- toString(): returns lovation including amount of floors in building and address of building\r\n" + //
-                        "- dine(int hunger, double money): Lowers hunger and pays for product\r\n" + //
-                        "");
     }
 
     /**
