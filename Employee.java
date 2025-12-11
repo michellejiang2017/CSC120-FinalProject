@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * File name: Employee.java
  * Author Michelle Jiang 
- * Description: 
+ * Description: Represents an employee in a store who interacts with customers.
  * Date: 2025-11-20
  */
 

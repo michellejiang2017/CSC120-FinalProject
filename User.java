@@ -2,7 +2,7 @@ import java.util.ArrayList;
 /**
  * File name: User.java
  * Author: Selina Fang, Aris Benitez-Linarez, Michelle Jiang
- * Description: 
+ * Description: This class represents a user who shops in the mall.
  * Date: 2025-12-5
  */
 

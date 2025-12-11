@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/**
+ * File name: Wing.java
+ * Author: Selina Fang, Michelle Jiang
+ * Description: This class represents a wing in the mall containing multiple stores across different floors.
+ * Date: 2025-12-5
+ */
 public class Wing {
     private String name;
     private HashMap<Integer, ArrayList<Store>> floorStores = new HashMap<>();

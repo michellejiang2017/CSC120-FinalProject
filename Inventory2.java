@@ -3,7 +3,7 @@ import java.util.Map;
 
 /**
  * File name: Inventory2.java
- * Author: Selina Fang, Michelle Jiang, Aris Benitez-Linarez
+ * Author: Selina Fang, Michelle Jiang
  * Description: This class manages the inventory for various stores in the mall.
  * Date: 2025-12-5
  */

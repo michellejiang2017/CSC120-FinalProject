@@ -3,7 +3,7 @@ import java.util.Map;
 
 /**
  * File name: Store.java
- * Author: Selina Fang, Michelle Jiang, Aris Benitez-Linarez
+ * Author: Selina Fang, Michelle Jiang
  * Description: This class represents a store in the mall.
  * Date: 2025-12-5
  */
