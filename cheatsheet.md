@@ -10,15 +10,9 @@ Note:  It's a good idea to also make this list available inside the game, in res
 - addItem(String itemName, double price, int amount)
 - goUp(): Allows user to change their activeFloor by +1
 - goDown(): Allows user to change their activeFloor by -1
-- showOptions(): 
-
-    public void showOptions() {
-        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
-    }
-
-    public String toString() {
-        return this.name + " is a " + this.nFloors + "-story building located at " + this.address + ".";
-    }
+- showOptions(): Prints where user can go and where they end up inclusing exit, goUp, goDown, and goToFloor 
+- toString(): returns lovation including amount of floors in building and address of building
+- dine(int hunger, double money): Lowers hunger 
 
 public void dine(int hunger, double money) { 
         hunger += this.nourishment; 
@@ -26,17 +20,6 @@ public void dine(int hunger, double money) {
     }
 }
 
-public Vehicle(String model) {
-        this.model = model;
-    }
-
-    public void drive(String destination) {
-       
-    }
-
-    public void park(ParkingLot lot) {
-        
-    }
 
 # SPOILER ALERT
 
