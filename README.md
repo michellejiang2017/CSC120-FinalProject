@@ -13,6 +13,7 @@
 
     We started by brainstorming ideas of potential games and really liked the shopping mall idea. We then brainstormed elements that would make up the shopping mall such as the stores, employees, navigating the shopping mall, etc. 
     We then listed which tasks would be taken on by whom and tried to work on them separately. If any of us had questions or ideas, we would either message in the slack or bring them up during our weekly meetings. 
+    For the design justification, we mainly tried to make it as object-oriented as possible and focused on implementing the core features (the stores and the purchasing game loop). We included the employee so that the user wouldn't be directly interacting with the store's stock and it also helped with making the interface more smooth. 
 
  - What **new thing(s)** did you learn / figure out in completing this project?
 
