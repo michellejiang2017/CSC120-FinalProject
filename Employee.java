@@ -26,7 +26,7 @@ public class Employee {
      * Initial user greeting 
      */
     public void greetCustomer() { 
-        System.out.println("Here is our inventory: ");
+        System.out.println("Welcome to " + store.getName() + "! Here is our inventory: ");
         this.store.printInventory();
     }
 
@@ -51,10 +51,10 @@ public class Employee {
                     System.out.println(item + " is not in the store. Please find the item in another store! (press ENTER)");
                 }
             } else {
-                System.out.println(item + "is not in shopping list. Either add item to list or exit store. ('add item' or press ENTER)");
+                System.out.println(item + " is not in shopping list. Either add item to list or exit store. ('add item' or press ENTER)");
                 String input = this.getInput(); 
                 if (input == null) continue; 
-                if (input == "add item") { 
+                if (input.equals("add item")) { 
                     System.out.println("What is the item you want to add?");
                     String userItem = this.getInput(); 
                     if (userItem == null) continue; 

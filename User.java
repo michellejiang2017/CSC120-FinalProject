@@ -13,12 +13,11 @@ public class User {
     private int hunger; // starts at zero and increases with every exit. 
 
     // use scanner to get input for the constructor
-    public User(String name, int age, String gender, double money, int hunger) {
+    public User(String name, double money) {
         this.name = name;
         this.money = money;
         this.shoppingList = new ArrayList<>();
-        this.hunger = hunger; 
-        System.out.println("I see you have $" + money + " to spend today.");
+        this.hunger = 0; 
     }
 
     public String getName() {
@@ -50,6 +49,9 @@ public class User {
         return this.hunger >= 5;
     }
 
+    public int getHungerLevel() {
+        return this.hunger;
+    }
     /**
      * Add an item to the shopping list
      * @param item the name of the item that the user wants to add to their shopping list

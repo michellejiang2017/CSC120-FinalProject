@@ -42,7 +42,12 @@ public class Store {
      * @param user the name of the user
      */
     public boolean checkList(String item, User user) {
-        return user.getShoppingList().contains(item.toLowerCase());
+        if (item == null) return false;
+        String target = item.trim();
+        for (String s : user.getShoppingList()) {
+            if (s.equalsIgnoreCase(target)) return true;
+        }
+        return false;
     }
 
      /** 
@@ -50,7 +55,12 @@ public class Store {
      * @param item the item that the user want to check whether existing in this store
      */
     public boolean checkStock(String item) {
-        return items.containsKey(item.toLowerCase());
+        if (item == null) return false;
+        String target = item.trim();
+        for (String key : items.keySet()) {
+            if (key.equalsIgnoreCase(target)) return true;
+        }
+        return false;
     }
 
     /** 
@@ -88,13 +98,21 @@ public class Store {
      * @param user the name of the user
      */
     public void buy(User user, String item) {
-        if (!items.containsKey(item)) {
+        String target = item.trim();
+        String matchedKey = null;
+        for (String key : items.keySet()) {
+            if (key.equalsIgnoreCase(target)) {
+                matchedKey = key;
+                break;
+            }
+        }
+        if (matchedKey == null) {
             throw new RuntimeException("This store does not sell this product.");
         }
-        double price = items.get(item);
+        double price = items.get(matchedKey);
         user.shop(price);
-        user.removeFromShoppingList(item);
-        System.out.println("You successfully bought " + item + " for $" + price + ". It has been removed from your shopping list.");
+        user.removeFromShoppingList(matchedKey);
+        System.out.println("You successfully bought " + matchedKey + " for $" + price + ". It has been removed from your shopping list.");
     }
 
     /** 
@@ -105,22 +123,4 @@ public class Store {
         user.addHunger();
     }
 
-    /** 
-     * Compare shopping list with store inventory so that the user can automatically buy stuff  
-     * @param user the name of the user
-     * @throw RuntimeException if nothing in the shopping list is found in this store.
-     */
-    public void buyFromShoppingList(User user) {
-        ArrayList<String> list = user.getShoppingList();
-        for (int i = 0; i < list.size(); i++) {
-            String need = list.get(i);
-            if (items.containsKey(need)) {
-                System.out.println("Found " + need + " in store, and we are buying it.");
-                buy(user, need);
-            } 
-            else {
-                throw new RuntimeException("Store does not have the" + need);
-            }
-        }
-    }
 }
