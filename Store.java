@@ -1,11 +1,10 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * File name: Store.java
- * Author: Selina Fang
- * Description: 
+ * Author: Selina Fang, Michelle Jiang, Aris Benitez-Linarez
+ * Description: This class represents a store in the mall.
  * Date: 2025-12-5
  */
 
@@ -13,19 +12,24 @@ public class Store {
     protected String name;
     protected Map<String, Double> items;  
 
+    /**
+     * Constructor for Store on the first floor
+     * @param name the name of the store
+     * @param inventory the inventory of the store
+     */
     public Store(String name, Inventory1 inventory) {
         this.name = name;
         this.items = inventory.getInventory(name); // inventory for the first floor
     }
 
+    /**
+     * Constructor for Store on the second floor
+     * @param name the name of the store
+     * @param inventory the inventory of the store
+     */
     public Store(String name, Inventory2 inventory) {
         this.name = name;
         this.items = inventory.getInventory(name); // inventory for the second floor
-    }
-
-    public Store(String name) {
-        this.name = name;
-        this.items = new HashMap<>();   // empty inventory
     }
 
     /**
@@ -40,6 +44,7 @@ public class Store {
      * Check the shoppinglist
      * @param item the item that the user want to check
      * @param user the name of the user
+     * @return whether the item is in the shopping list
      */
     public boolean checkList(String item, User user) {
         if (item == null) return false;
@@ -53,6 +58,7 @@ public class Store {
      /** 
      * Check whether the item exists in the store
      * @param item the item that the user want to check whether existing in this store
+     * @return whether the item exists in the store
      */
     public boolean checkStock(String item) {
         if (item == null) return false;
@@ -64,16 +70,8 @@ public class Store {
     }
 
     /** 
-     * Add item with price
-     * @param item the name of the item that we want to add to the store
-     * @param price the price of the item that we want to add to the store
-     */
-    public void addItem(String item, double price) {
-        items.put(item, price);
-    }
-
-    /** 
      * Enter store
+     * @param user the name of the user
      */
     public void enter(User user) {
         System.out.println(user.getName() + " entered " + name);

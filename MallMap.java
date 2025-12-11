@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 /**
  * File name: Mallmap.java
- * Author: Selina Fang
- * Description: 
+ * Author: Selina Fang, Michelle Jiang, Aris Benitez-Linarez
+ * Description: This class represents a shopping mall with multiple wings and floors.
  * Date: 2025-12-5
  */
 
@@ -14,6 +14,12 @@ public class MallMap extends Building {
     private Inventory1 inventory1;
     private Inventory2 inventory2;
 
+    /**
+     * Constructor for MallMap
+     * @param name the name of the mall
+     * @param address the address of the mall
+     * @param nFloors the number of floors in the mall
+     */
     public MallMap(String name, String address, int nFloors) {
         super(name, address, nFloors);
         inventory1 = new Inventory1(); 
@@ -113,7 +119,6 @@ public class MallMap extends Building {
             throw new RuntimeException("Invalid wing");
             }   
         wing = index;
-        user.addHunger();
         System.out.println("You moved to the " + wings.get(index).getName()+" wing.");
     }
 
@@ -174,6 +179,7 @@ public class MallMap extends Building {
 
     public static void main(String[] args) {
         
+        // Initialize scanner and mall
         Scanner scanner = new Scanner(System.in);
         MallMap mall = new MallMap("The Capitalism Experience", "123 Northampton", 2);
         System.out.println("Welcome to " + mall.getName() + " located at " + mall.getAddress() + "!");
@@ -273,6 +279,7 @@ public class MallMap extends Building {
                         break;
                     case "exit":
                         shopping = false;
+                        user.leaveTheMall();
                         System.out.println("Thank you for visiting " + mall.getName() + "! Goodbye!");
                         break;
                     default:

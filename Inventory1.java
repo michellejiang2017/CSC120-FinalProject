@@ -3,13 +3,17 @@ import java.util.Map;
 
 /**
  * File name: Inventory1.java
- * Author: Selina Fang
- * Description: 
+ * Author: Selina Fang, Michelle Jiang
+ * Description: This class represents the inventory for the first floor of the mall.
  * Date: 2025-12-8
  */
 
 public class Inventory1 {
     private Map<String, Map<String, Double>> inventories;
+
+    /**
+     * Constructor for Inventory1
+     */
     public Inventory1() {
         inventories = new HashMap<>();
         walmart();
@@ -22,6 +26,9 @@ public class Inventory1 {
         TJMaxx();
     }
 
+    /**
+     * Initialize Walmart inventory
+     */
     private void walmart() {
         Map<String, Double> walmartItems = new HashMap<>();
         walmartItems.put("Bowl", 5.99);
@@ -31,6 +38,9 @@ public class Inventory1 {
         inventories.put("walmart", walmartItems);
     }
 
+    /**
+     * Initialize Whole Foods inventory
+     */
     private void wholeFoods() {
         Map<String, Double> wholeFoodsItems = new HashMap<>();
         wholeFoodsItems.put("Sub", 20.00);
@@ -41,6 +51,9 @@ public class Inventory1 {
         inventories.put("whole foods", wholeFoodsItems);
     }
 
+    /**
+     * Initialize Best Buy inventory
+     */
      private void bestBuy() {
         Map<String, Double> bestBuyItems = new HashMap<>();
         bestBuyItems.put("Laptop", 899.99);
@@ -51,6 +64,9 @@ public class Inventory1 {
         inventories.put("best buy", bestBuyItems);
     }
 
+    /**
+     * Initialize AT&T inventory
+     */
     private void ATT() {
         Map<String, Double> ATTItems = new HashMap<>();
         ATTItems.put("iPhone Case", 29.99);
@@ -61,6 +77,9 @@ public class Inventory1 {
         inventories.put("at&t", ATTItems);
     }
 
+    /**
+     * Initialize Burlington inventory
+     */
     private void burlington() {
         Map<String, Double> burlingtonItems = new HashMap<>();
         burlingtonItems.put("Winter Jacket", 39.99);
@@ -71,6 +90,9 @@ public class Inventory1 {
         inventories.put("burlington", burlingtonItems);
     }
 
+    /**
+     * Initialize Sephora inventory
+     */
     private void sephora() {
         Map<String, Double> sephoraItems = new HashMap<>();
         sephoraItems.put("Lipstick", 24.99);
@@ -81,6 +103,9 @@ public class Inventory1 {
         inventories.put("sephora", sephoraItems);
     }
 
+    /**
+     * Initialize Marshalls inventory
+     */
     private void marshalls() {
         Map<String, Double> marshallsItems = new HashMap<>();
         marshallsItems.put("Dress", 19.99);
@@ -91,6 +116,9 @@ public class Inventory1 {
         inventories.put("marshalls", marshallsItems);
     }
 
+    /**
+     * Initialize TJMaxx inventory
+     */
     private void TJMaxx() {
         Map<String, Double> TJMaxxItems = new HashMap<>();
         TJMaxxItems.put("Sweater", 18.99);
@@ -103,6 +131,7 @@ public class Inventory1 {
 
     /** 
      * Get the inventory of a certain store
+     * @param storeName the name of the store
      * @return the store inventory
      */
     public Map<String, Double> getInventory(String storeName) {

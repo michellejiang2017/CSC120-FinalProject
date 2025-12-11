@@ -3,13 +3,17 @@ import java.util.Map;
 
 /**
  * File name: Inventory2.java
- * Author: Selina Fang
- * Description: 
+ * Author: Selina Fang, Michelle Jiang, Aris Benitez-Linarez
+ * Description: This class manages the inventory for various stores in the mall.
  * Date: 2025-12-5
  */
 
 public class Inventory2 {
     private Map<String, Map<String, Double>> inventories;
+    
+    /**
+     * Constructor for Inventory2
+     */
     public Inventory2() {
         inventories = new HashMap<>();
         ikea();
@@ -22,6 +26,9 @@ public class Inventory2 {
         vintage();
     }
 
+    /**
+     * Initialize Ikea inventory
+     */
     private void ikea() {
         Map<String, Double> ikeaItems = new HashMap<>();
         ikeaItems.put("Coffee table", 499.99);
@@ -32,6 +39,9 @@ public class Inventory2 {
         inventories.put("ikea", ikeaItems);
     }
 
+    /**
+    * Initialize Play Zone inventory
+    */
     private void playZone() {
         Map<String, Double> playzoneItems = new HashMap<>();
         playzoneItems.put("Toy Car", 9.99);
@@ -42,6 +52,9 @@ public class Inventory2 {
         inventories.put("play zone", playzoneItems);
     }
 
+    /**
+     * Initialize Barnes & Noble inventory
+     */
     private void barnes() {
         Map<String, Double> barnesItems = new HashMap<>();
         barnesItems.put("Novel", 12.99);
@@ -52,6 +65,9 @@ public class Inventory2 {
         inventories.put("barnes & noble", barnesItems);
     }
 
+    /**
+     * Initialize Starbucks inventory
+     */
     private void starbucks() {
         Map<String, Double> starbucksItems = new HashMap<>();
         starbucksItems.put("Coffee", 4.99);
@@ -62,6 +78,9 @@ public class Inventory2 {
         inventories.put("starbucks", starbucksItems);
     }
 
+    /**
+     * Initialize Swarovski inventory
+     */
     private void swarovski() {
         Map<String, Double> swarovskiItems = new HashMap<>();
         swarovskiItems.put("Crystal Necklace", 129.99);
@@ -71,6 +90,9 @@ public class Inventory2 {
         inventories.put("swarovski", swarovskiItems);
     }
 
+    /**
+     * Initialize Tiffany & Co. inventory
+     */
     private void tiffany() {
         Map<String, Double> tiffanyItems = new HashMap<>();
         tiffanyItems.put("Diamond Ring", 4990.99);
@@ -80,6 +102,9 @@ public class Inventory2 {
         inventories.put("tiffany & co.", tiffanyItems);
     }
 
+    /**
+     * Initialize Thrift Store inventory
+     */
     private void thriftStore() {
         Map<String, Double> thriftItems = new HashMap<>();
         thriftItems.put("Used Jacket", 15.00);
@@ -90,6 +115,9 @@ public class Inventory2 {
         inventories.put("thrift store", thriftItems);
     }
 
+    /**
+     * Initialize Vintage Finds inventory
+     */
     private void vintage() {
         Map<String, Double> vintageItems = new HashMap<>();
         vintageItems.put("Retro Lamp", 35.00);
@@ -102,6 +130,7 @@ public class Inventory2 {
 
     /** 
      * Get the inventory of a certain store
+     * @param storeName the name of the store
      * @return the store inventory
      */
     public Map<String, Double> getInventory(String storeName) {

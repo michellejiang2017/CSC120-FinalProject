@@ -12,7 +12,11 @@ public class User {
     private ArrayList<String> shoppingList; 
     private int hunger; // starts at zero and increases with every exit. 
 
-    // use scanner to get input for the constructor
+    /**
+     * Constructor for User. use scanner to get input for the constructor
+     * @param name the name of the user
+     * @param money the amount of money the user has
+     */
     public User(String name, double money) {
         this.name = name;
         this.money = money;
@@ -20,38 +24,68 @@ public class User {
         this.hunger = 0; 
     }
 
+    /**
+     * Get the name of the user
+     * @return the name of the user
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Get the amount of money the user has
+     * @return the amount of money the user has
+     */
     public double getMoney() { 
         return money; 
     }
 
+    /**
+     * Spend money
+     * @param amount the amount of money to spend
+     */
     public void spendMoney(double amount) {
         this.money -= amount;
     }
 
+    /**
+     * Get the shopping list
+     * @return the shopping list
+     */
     public ArrayList<String> getShoppingList() {
         return shoppingList;
     }
 
+    /**
+     * Change the hunger level
+     * @param delta the amount to change the hunger level by
+     */
     public void changeHunger(int delta) {
         this.hunger += delta;
+        if (this.hunger < 0) {
+            this.hunger = 0;
+        }
         System.out.println("Your hunger is now " + this.hunger + ".");
     }
 
+    /**
+     * Test if the user is too hungry
+     * @return whether the user is too hungry
+     */
     public boolean testHunger() {
         return this.hunger >= 5;
     }
 
+    /**
+     * Get the hunger level
+     * @return the hunger level
+     */
     public int getHungerLevel() {
         return this.hunger;
     }
     /**
      * Add an item to the shopping list
      * @param item the name of the item that the user wants to add to their shopping list
-     * need to add inventory check!! --> check mall inventory 
      */
     public void addToShoppingList(String item) {
         shoppingList.add(item);
@@ -94,13 +128,6 @@ public class User {
     }
 
     /**
-     * Enter the mall
-     */
-    public void enterTheMall() {
-        System.out.println("You entered the mall.");
-    }
-
-    /**
      * leave the mall
      * @throw RuntimeException if the uer did not buy all the stuff on the shopping list or they are too hungry
      */
@@ -126,7 +153,7 @@ public class User {
          if (price > money) {
             throw new RuntimeException("You do not have enough money for this purchase.");
         }
-        money -= price;
+        this.spendMoney(price);
         System.out.println("You spent $" + price + ", and your remaining money is $" + money);
     }
     
@@ -137,14 +164,13 @@ public class User {
         this.hunger += 1;
     }
 
+    /**
+     * eat food from a food store
+     * @param food the food store
+     */
     public void eat(Food food) { 
         if (food == null) return;
         this.changeHunger(food.getNourishment());
-        System.out.println("You ate some food from " + food.getName() + " and reduced your hunger by " + food.getNourishment() + ".");
-    }
-
-    public void play(String game) { 
-        System.out.println("You played in the play zone.");
-        hunger += 1; 
+        System.out.println("You ate some food from " + food.getName() + ".");
     }
 }  

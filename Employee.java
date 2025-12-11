@@ -76,7 +76,5 @@ public class Employee {
     private String getInput() { 
         return scannerInput.nextLine().trim().toLowerCase();
     }
-    
-    public static void main(String[] args) {
-    }
+
 }
