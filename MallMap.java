@@ -167,6 +167,7 @@ public class MallMap extends Building {
         System.out.println("balance           - View your balance");
         System.out.println("hunger           - View your hunger level");
         System.out.println("exit              - Leave the mall");
+        System.out.println("help              - Show this menu");
     }
 
     public static void main(String[] args) {
@@ -193,11 +194,11 @@ public class MallMap extends Building {
         // Enter the mall
         mall.enter();  
         mall.showLocation(); 
+        mall.showMallOptions();
 
         // Main shopping loop
         boolean shopping = true;  
         while (shopping) {
-            mall.showMallOptions();
             System.out.print("\nEnter your choice: ");
             String input = scanner.nextLine().trim();
             String[] parts = input.split(" ", 2);
@@ -269,15 +270,19 @@ public class MallMap extends Building {
                     case "hunger":
                         System.out.println("Your current hunger level is: " + user.getHungerLevel());
                         break;
+                    case "help":
+                        mall.showMallOptions();
+                        break;
                     case "exit":
                         if (user.testHunger() && !user.getShoppingList().isEmpty()) {
                             System.out.println("You cannot leave the mall. Please eat some food first or make sure that your shopping list is empty!");
                             break;
+                        } else {
+                            shopping = false;
+                            user.leaveTheMall();
+                            System.out.println("Thank you for visiting " + mall.getName() + "! Goodbye!");
+                            break;
                         }
-                        shopping = false;
-                        user.leaveTheMall();
-                        System.out.println("Thank you for visiting " + mall.getName() + "! Goodbye!");
-                        break;
                     default:
                         System.out.println("Invalid command. Please try again.");
                     } 

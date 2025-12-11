@@ -36,14 +36,20 @@ public class Employee {
     public void mainConversation() { 
         boolean stillPlaying = true; 
         do {
-            System.out.println("What would you like to purchase from this store? (Type 'exit' to leave store)");
+            System.out.println("What would you like to purchase from this store? (Type the name of the item you would like to purchase. Type 'add <item>' to add to shopping list. Type 'exit' to leave store)");
             String item = this.getInput(); 
-            if (item == null) continue;
-            if (item.equals("exit")) {
+            String[] parts = item.split(" ", 2);
+            String command = parts[0].toLowerCase();
+            if (command == null) continue;
+            if (command.equals("add")) { 
+                if (parts.length < 2) {
+                    System.out.println("Please specify an item to add.");
+                    }
+                user.addToShoppingList(parts[1]);
+            } else if (command.equals("exit")) {
                 stillPlaying = false;
                 break; 
-            }
-            if (store.checkList(item, user)) { 
+            } else if (store.checkList(item, user)) { 
                 if (store.checkStock(item)) { 
                     store.buy(user, item);
                     if (store instanceof Food) {
@@ -54,14 +60,14 @@ public class Employee {
                     System.out.println(item + " is not in the store. Please find the item in another store! (press ENTER)");
                 }
             } else {
-                System.out.println(item + " is not in shopping list. Either add item to list or exit store. ('add item' or press ENTER)");
+                System.out.println(item + " is not in shopping list. Either add item to list or exit store. ('add <item>' or press ENTER)");
                 String input = this.getInput(); 
                 if (input == null) continue; 
-                if (input.equals("add item")) { 
-                    System.out.println("What is the item you want to add?");
-                    String userItem = this.getInput(); 
-                    if (userItem == null) continue; 
-                    user.addToShoppingList(userItem);
+                if (command.equals("add")) { 
+                if (parts.length < 2) {
+                    System.out.println("Please specify an item to add.");
+                    }
+                user.addToShoppingList(parts[1]);
                 }
             }
         } while (stillPlaying);
